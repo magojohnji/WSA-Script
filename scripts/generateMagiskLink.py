@@ -38,7 +38,7 @@ if not magisk_branch:
     magisk_branch = "topjohnwu"
 if not magisk_ver:
     magisk_ver = "stable"
-if magisk_branch != "vvb2060":
+if magisk_branch = "topjohnwu":
     try:
         magisk_link = json.loads(requests.get(
             f"https://github.com/{magisk_branch}/magisk-files/raw/master/{magisk_ver}.json").content)['magisk']['link']
@@ -46,7 +46,22 @@ if magisk_branch != "vvb2060":
         print("Failed to fetch from GitHub API, fallbacking to jsdelivr...")
         magisk_link = json.loads(requests.get(
             f"https://fastly.jsdelivr.net/gh/{magisk_branch}/magisk-files@master/{magisk_ver}.json").content)['magisk']['link']
-else:
+if magisk_branch = "HuskyDG":
+    try:magisk_link = json.loads(requests.get(
+        f"https://github.com/HuskyDG/magisk-files/blob/main/canary.json").content)['magisk']['link']
+    except Exception:
+        print("Failed to fetch from GitHub API, fallbacking to jsdelivr...")
+        magisk_link = json.loads(requests.get(
+            f"https://fastly.jsdelivr.net/gh/HuskyDG/magisk-files@main/canary.json").content)['magisk']['link']
+if magisk_branch = "HuskyDG Lite"
+    try:
+        magisk_link = json.loads(requests.get(
+            f"https://github.com/HuskyDG/magisk-files/blob/main/canary_lite.json").content)['magisk']['link']
+    except Exception:
+        print("Failed to fetch from GitHub API, fallbacking to jsdelivr...")
+        magisk_link = json.loads(requests.get(
+            f"https://fastly.jsdelivr.net/gh/HuskyDG/magisk-files@main/canary_lite.json").content)['magisk']['link']
+if magisk_branch = "vvb2060":
     try:
         magisk_link = json.loads(requests.get(
             f"https://install.appcenter.ms/api/v0.1/apps/vvb2060/magisk/distribution_groups/public/releases/latest?is_install_page=true", headers=headers).content)['download_url']

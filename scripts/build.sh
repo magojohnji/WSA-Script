@@ -162,6 +162,7 @@ RELEASE_TYPE_MAP=(
 MAGISK_BRANCH_MAP=(
     "topjohnwu"
     "HuskyDG"
+    "HuskyDG Lite"
     "vvb2060"
 )
 
@@ -758,11 +759,13 @@ if [[ "$ROOT_SOL" = "none" ]] && [[ "$GAPPS_BRAND" = "none" ]] && [[ "$REMOVE_AM
     sed -i -e 's@Start-Process\ "wsa://com.android.vending"@@g' "../installer/$ARCH/Install.ps1"
 else
     if [[ "$ROOT_SOL" == "none" ]]; then
-        sed -i -e 's@Start-Process "wsa://com.topjohnwu.magisk"@@g' "../installer/$ARCH/Install.ps1"
+        
     elif [[ "$ROOT_SOL" = "kernelsu" ]]; then
         sed -i -e 's@wsa://com.topjohnwu.magisk@https://github.com/YT-Advanced/WSA-Script/blob/HEAD/docs/Guides/KernelSU.md@g' "../installer/$ARCH/Install.ps1"
     elif [[ "$MAGISK_BRANCH" = "HuskyDG" ]]; then
         sed -i -e 's@com.topjohnwu.magisk@io.github.huskydg.magisk@g' "../installer/$ARCH/Install.ps1"
+    elif [[ "$MAGISK_BRANCH" = "HuskyDG Lite" ]]; then
+        sed -i -e 's@com.topjohnwu.magisk@io.github.huskydg.magisk.lite@g' "../installer/$ARCH/Install.ps1"
     elif [[ "$MAGISK_BRANCH" = "vvb2060" ]]; then
         sed -i -e 's@com.topjohnwu.magisk@io.github.vvb2060.magisk@g' "../installer/$ARCH/Install.ps1"
     fi
